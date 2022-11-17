@@ -1,0 +1,60 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:l="sap.ui.layout"
+	xmlns:unified="sap.ui.unified" controllerName="com.mavenPatients_Appointment_Management.controller.Customer_Dashboard"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<html:style>
+		.t-bold{ font-weight: bold; color: #0066ff; font-size: 1.25rem; } .m-2{ margin: 1rem 0; } .mtb-2{ margin: 2rem 0; }
+	</html:style>
+	<App>
+		<pages>
+			<Page title="Title" showHeader="false" backgroundDesign="Solid">
+				<tnt:ToolHeader>
+					<Button type="Back" press="handleBackPress"/>
+					<Image src="Assets/logo.png" decorative="false" height="20px"/>
+					<Text text="{i18n>AppName}" wrapping="false"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://log" type="Transparent" press=".handleLogOut"/>
+					<Button icon="sap-icon://menu2" type="Transparent"/>
+				</tnt:ToolHeader>
+				<content>
+					<l:BlockLayout id="blockLayout">
+						<l:BlockLayoutRow >
+							<l:BlockLayoutCell title="Your Profile" titleAlignment="Center" backgroundColorSet="ColorSet6" backgroundColorShade="ShadeB">
+								<HBox alignItems="Center">
+									<Text text="Name: " renderWhitespace="true"/>
+									<Text text=" {CusData>/FirstName} {CusData>/MiddleName} {CusData>/LastName}" class="t-bold"/>
+								</HBox>
+								<HBox><Text text="Account Type: {CusData>/Type}"/></HBox>
+								<HBox><Text text="Email: {CusData>/Email}"/></HBox>
+								<HBox><Text text="Date of birth: {CusData>/DateOfBirth}"/></HBox>
+								<HBox><Text text="Address: {CusData>/Address}, {CusData>/District}, {CusData>/State}, {CusData>/Country}"/></HBox>
+							</l:BlockLayoutCell>
+							<l:BlockLayoutCell id="cell-2" binding="{/cell2}" title="Create an appointment" titleAlignment="Center" backgroundColorSet="ColorSet10"
+								backgroundColorShade="ShadeB">
+								<core:Fragment fragmentName="com.mavenPatients_Appointment_Management.fragments.Profile" type="XML"/>
+								<core:Icon src="sap-icon://add-activity" press=".handleIconPress" color="Positive" decorative="true" width="100%"/>
+							</l:BlockLayoutCell>
+						</l:BlockLayoutRow>
+						<!--<l:BlockLayoutRow>-->
+						<!--	<l:BlockLayoutCell id="cell-3" title="Track your appointments" titleAlignment="Begin" backgroundColorSet="ColorSet11"-->
+						<!--		backgroundColorShade="ShadeB"></l:BlockLayoutCell>-->
+						<!--</l:BlockLayoutRow>-->
+						<!--<l:BlockLayoutRow>-->
+						<!--	<l:BlockLayoutCell id="cell-4" width="100%">-->
+						<!--<core:Fragment fragmentName="com.mavenPatients_Appointment_Management.fragments.CustomerDashboard" type="XML"/>-->
+						<!--		<core:Fragment fragmentName="com.mavenPatients_Appointment_Management.fragments.CustomerDashboard" type="XML"/>-->
+						<!--	</l:BlockLayoutCell>-->
+						<!--</l:BlockLayoutRow>-->
+					</l:BlockLayout>
+					<VBox class="mtb-2">
+						<HBox>
+							<ObjectHeader title="Track your appointments" titleLevel="H1" class="sapUiResponsivePaddin--header"/>
+						</HBox>
+						<HBox>
+							<core:Fragment fragmentName="com.mavenPatients_Appointment_Management.fragments.CustomerDashboard" type="XML"/>
+						</HBox>
+					</VBox>
+				</content>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

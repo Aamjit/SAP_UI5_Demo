@@ -1,0 +1,47 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:l="sap.ui.layout"
+	xmlns:unified="sap.ui.unified" controllerName="com.mavenPatients_Appointment_Management.controller.Doctor_Dashboard"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<html:style>
+		.t-bold{ font-weight: bold; color: #0066ff; font-size: 1.25rem; } .m-2{ margin: 1rem 0; }
+	</html:style>
+	<Page title="Title" showHeader="false" backgroundDesign="Solid">
+		<tnt:ToolHeader>
+			<Button type="Back" press="handleBackPress"/>
+			<Image src="Assets/logo.png" decorative="false" height="20px"/>
+			<Text text="{i18n>AppName}" wrapping="false"/>
+			<ToolbarSpacer/>
+			<Button icon="sap-icon://log" id="log-out-btn" visible="true" type="Transparent" press=".handleLogOut"/>
+			<Button icon="sap-icon://menu2" type="Transparent"/>
+		</tnt:ToolHeader>
+		<content>
+			<l:BlockLayout id="blockLayout">
+				<l:BlockLayoutRow >
+					<l:BlockLayoutCell title="Your Profile" titleAlignment="Center" backgroundColorSet="ColorSet6" backgroundColorShade="ShadeB">
+						<HBox alignItems="Center">
+							<Text text="Name: " renderWhitespace="true"/>
+							<Text text=" {DocData>/FirstName} {DocData>/MiddleName} {DocData>/LastName}" class="t-bold"/></HBox>
+						<HBox><Text text="Account Type: {DocData>/Type}"/></HBox>
+						<HBox><Text text="Email: {DocData>/Email}"/></HBox>
+						<HBox><Text text="Date of birth: {DocData>/DateOfBirth}"/></HBox>
+						<HBox><Text text="Address: {DocData>/Address}, {DocData>/District}, {DocData>/State}, {DocData>/Country}"/></HBox>
+						<HBox><Text text="Hospital Name: {DocData>/HospitalName}"/></HBox>
+						<HBox><Text text="Speciality: {DocData>/DepartmentName}"/></HBox>
+					</l:BlockLayoutCell>
+					<l:BlockLayoutCell id="cell-2" binding="{/cell2}" title="View appointment request" titleAlignment="Center" backgroundColorSet="ColorSet10"
+						backgroundColorShade="ShadeB">
+						<core:Fragment fragmentName="com.mavenPatients_Appointment_Management.fragments.Profile" type="XML"/>
+						<core:Icon src="sap-icon://activity-items" press=".handleViewAppointment" color="Positive" decorative="true" width="100%"/>
+					</l:BlockLayoutCell>
+				</l:BlockLayoutRow>
+			</l:BlockLayout>
+			<VBox>
+				<HBox>
+					<ObjectHeader title="Dashboard" titleLevel="H1" icon="sap-icon://appointment-2" iconActive="false" class="sapUiResponsivePadding--header"/>
+				</HBox>
+				<HBox width="100%">
+					<core:Fragment fragmentName="com.mavenPatients_Appointment_Management.fragments.DoctorDashboard" type="XML" id="CustomerDashboardFragment"/>
+				</HBox>
+			</VBox>
+		</content>
+	</Page>
+</mvc:View>

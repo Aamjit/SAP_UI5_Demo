@@ -1,0 +1,55 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog id="viewAppDialog" title="Arrange appointment request" contentWidth="50%">
+		<VBox class="sapUiSmallMargin">
+			<!--<f:SimpleForm id="SimpleFormChange354" editable="true" layout="ResponsiveGridLayout" title="View requested appointment" labelSpanXL="3"-->
+			<!--	labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0"-->
+			<!--	columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">-->
+			<!--	<f:content>-->
+			<!--		<Label text="Appointment name"/>-->
+			<!--		<Input value="{Appointment>/Note}" editable="false"/>-->
+			<!--		<Label text="Appointment By"/>-->
+			<!--		<Input value="{Appointment>/State}"></Input>-->
+			<!--		<Label text="District"/>-->
+			<!--		<Input value="{Appointment>/District}"></Input>-->
+			<!--		<Label text="Hospital"/>-->
+			<!--		<Input value="{Appointment>/Hospital}"></Input>-->
+			<!--		<Label text="Department"/>-->
+			<!--		<Input value="{Appointment>/Department}"></Input>-->
+			<!--		<Label text="Doctor"/>-->
+			<!--		<Input value="{Appointment>/Doctor}"></Input>-->
+			<!--		<HBox justifyContent="SpaceAround" alignItems="Center" width="100%" class="m-2">-->
+			<!--			<VBox justifyContent="Center">-->
+			<!--				<Label text="Pick a date"/>-->
+			<!--				<Button ariaHasPopup="Dialog" tooltip="Schedule a date" icon="sap-icon://appointment-2" press=".openDatePicker"/>-->
+			<!--				<DatePicker id="HiddenDP" hideInput="true" change=".changeDateHandler"/>-->
+			<!--			</VBox>-->
+			<!--			<VBox justifyContent="Center">-->
+			<!--				<Label text="Pick a time"/>-->
+			<!--				<Button ariaHasPopup="Dialog" tooltip="Open Time Picker" icon="sap-icon://time-entry-request" press=".openTimePicker"/>-->
+			<!--				<TimePicker id="HiddenTP" hideInput="true" change=".changeTimeHandler"/>-->
+			<!--			</VBox>-->
+			<!--		</HBox>-->
+			<!--		<HBox alignItems="Center">-->
+			<!--			<Label text="Availability: "/>-->
+			<!--			<Label text="{Appointment>/availability}" design="Bold" displayOnly="true"/>-->
+			<!--		</HBox>-->
+			<!--	</f:content>-->
+			<!--</f:SimpleForm>-->
+			<!--<HBox width="100%" justifyContent="SpaceAround" alignItems="Center">-->
+			<!--	<Button text="Schedule Appoinment" type="Accept" press=".handleCreateAppointment" width="100%"/>-->
+			<!--	<Button text="Close" type="Reject" press=".onCloseDialog" width="100%"/>-->
+			<!--</HBox>-->
+			<List items="{appointmentListView>/}" headerText="Pending Appointment Confirmation" models="{appointmentListView}"  id="appointmentListView">
+				<ObjectListItem title="{appointmentListView>AppointmentTitle}" type="Active" press=".onListItemPress" models="{appointmentListView}">
+					<firstStatus>
+						<ObjectStatus text="Status: {appointmentListView>AppointmentState}"/>
+					</firstStatus>
+					<ObjectAttribute text="Patient's Name: {appointmentListView>CustomerName}"/>
+					<ObjectAttribute text="Description: {appointmentListView>Note}"/>
+					<ObjectAttribute text="Appointment Date: {appointmentListView>AppDate}"/>
+					<ObjectAttribute text="From: {appointmentListView>FromTime} To: {appointmentListView>ToTime}"/>
+				</ObjectListItem>
+			</List>
+		</VBox>
+	</Dialog>
+</core:FragmentDefinition>

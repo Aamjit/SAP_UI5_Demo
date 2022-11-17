@@ -1,0 +1,131 @@
+{
+	"_version": "1.7.3",
+	"sap.app": {
+		"id": "com.mavenPatients_Appointment_Management",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"sourceTemplate": {
+			"id": "ui5template.basicSAPUI5ApplicationProject",
+			"version": "1.40.12"
+		}
+	},
+
+	"sap.ui": {
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+
+		]
+	},
+
+	"sap.ui5": {
+		"rootView": {
+			"viewName": "com.mavenPatients_Appointment_Management.view.Landing_Page",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.f": {},
+				"sap.ui.layout": {},
+				"sap.ushell": {},
+				"sap.collaboration": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "com.mavenPatients_Appointment_Management.i18n.i18n"
+				}
+			}
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"type": "View",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "com.mavenPatients_Appointment_Management.view",
+				"controlAggregation": "pages",
+				"transition": "fade",
+				"controlId": "app"
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "nLanding",
+				"target": "tLanding"
+			}, {
+				"pattern": "signIn",
+				"name": "nSignIn",
+				"target": "tSignIn"
+			}, {
+				"pattern": "CreateCustomer",
+				"name": "nCreateCustomer",
+				"target": "tCreateCustomer"
+			}, {
+				"pattern": "dashboard",
+				"name": "nCDashboard",
+				"target": "tCDashboard"
+			}, {
+				"pattern": "dashboard_doctor",
+				"name": "nDDashboard",
+				"target": "tDDashboard"
+			}],
+			"targets": {
+				"tLanding": {
+					"viewName": "Landing_Page",
+					"viewType": "XML"
+				},
+				"tSignIn": {
+					"viewName": "Sign_In",
+					"viewType": "XML"
+				},
+				"tCreateCustomer": {
+					"viewName": "Create_Account_Customer",
+					"viewType": "XML"
+				},
+				"tCDashboard": {
+					"viewName": "Customer_Dashboard",
+					"viewType": "XML"
+				},
+				"tDDashboard": {
+					"viewName": "Doctor_Dashboard",
+					"viewType": "XML"
+				}
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		}
+	}
+}

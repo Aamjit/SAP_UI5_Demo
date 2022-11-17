@@ -1,0 +1,88 @@
+<mvc:View controllerName="com.mavenPatients_Appointment_Management.controller.Landing_Page" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:mvc="sap.ui.core.mvc" displayBlock="true" xmlns="sap.m" xmlns:tnt="sap.tnt">
+	<html:style>
+		.title-txt{ font-size: calc(.5rem + 1.5vmin); margin-bottom: 2rem; } .l-cell-bg{ background-image: url(Assets/Landing1.jpg);
+		background-repeat : no-repeat; background-size: cover;} .txt-deco{ line-height: 1.6; }
+	</html:style>
+	<App backgroundOpacity="1" id="app">
+		<!--backgroundImage="assets/Landing1.jpg"-->
+		<pages>
+			<Page showHeader="false" backgroundDesign="Transparent">
+				<tnt:ToolHeader>
+					<!--<Button type="Back" press="handleBackPress"/>-->
+					<Image src="Assets/logo.png" decorative="false" height="20px"/>
+					<Text text="{i18n>AppName}" wrapping="false"/>
+					<ToolbarSpacer/>
+					<Button icon="sap-icon://menu2" type="Transparent"/>
+				</tnt:ToolHeader>
+				<content>
+					<!--<Image src="assets/Landing1.jpg" width="100%"/>-->
+					<VBox>
+						<l:BlockLayout id="blockLayout">
+							<l:BlockLayoutRow>
+								<l:BlockLayoutCell title="Patients Appointment Management" titleLevel="H6" titleAlignment="Center" backgroundColorSet="ColorSet10"
+									backgroundColorShade="ShadeB"></l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+							<l:BlockLayoutRow>
+								<l:BlockLayoutCell title="The perfect appointment for you" width="70%" titleLevel="H1" titleAlignment="Center"
+									class="customCellImageBackground l-cell-bg" backgroundColorSet="ColorSet7" backgroundColorShade="ShadeB">
+									<HBox justifyContent="Center" height="50vmin">
+										<Text text="Here we provide the best moment for you to meet your specialist."/>
+									</HBox>
+								</l:BlockLayoutCell>
+								<l:BlockLayoutCell backgroundColorSet="ColorSet5" backgroundColorShade="ShadeB" width="30%">
+									<VBox justifyContent="Center" alignItems="Center" height="100%">
+										<Text text="Start your journey with us" class="title-txt"/>
+										<Button text="Get Started" press="handleGetStarted"/>
+									</VBox>
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+							<l:BlockLayoutRow>
+								<l:BlockLayoutCell title="Why us?" titleAlignment="Center" backgroundColorSet="ColorSet10" backgroundColorShade="ShadeA"></l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+							<l:BlockLayoutRow>
+								<l:BlockLayoutCell title="{LandingData>/introduction/title}" titleAlignment="Left" backgroundColorSet="ColorSet2"
+									backgroundColorShade="ShadeA">
+									<VBox alignItems="Baseline">
+										<HBox>
+											<Text text="{LandingData>/introduction/content}" renderWhitespace="true" class="txt-deco"/>
+										</HBox>
+									</VBox>
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+							<l:BlockLayoutRow>
+								<l:BlockLayoutCell title="{LandingData>/hero1/title}" titleAlignment="Right" backgroundColorSet="ColorSet5" backgroundColorShade="ShadeD">
+									<VBox alignItems="End">
+										<HBox>
+											<Text text="{LandingData>/hero1/content}" renderWhitespace="true" class="txt-deco"/>
+										</HBox>
+									</VBox>
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+							<l:BlockLayoutRow>
+								<l:BlockLayoutCell title="{LandingData>/hero2/title}" titleAlignment="Center" backgroundColorSet="ColorSet7" backgroundColorShade="ShadeC">
+									<Carousel class="sapUiContentPadding" loop="true" height="50%">
+										<Image src="Assets/Carousel/carousel-1.jpg" alt="Example picture of speakers"/>
+										<Image src="Assets/Carousel/carousel-2.jpg" alt="Example picture of USB flash drive"/>
+										<Image src="Assets/Carousel/carousel-3.jpg" alt="Example picture of spotlight"/>
+										<Image src="Assets/Carousel/carousel-4.jpg" alt="Example picture of spotlight"/>
+										<Image src="Assets/Carousel/carousel-5.jpg" alt="Example picture of spotlight"/>
+									</Carousel>
+								</l:BlockLayoutCell>
+							</l:BlockLayoutRow>
+						</l:BlockLayout>
+					</VBox>
+				</content>
+				<footer>
+					<OverflowToolbar>
+						<!--<ToolbarSpacer/>-->
+						<!--<Button text="Accept" type="Accept" />-->
+						<!--<Button text="Reject" type="Reject" />-->
+						<!--<Button text="Edit" />-->
+						<!--<Button text="Delete" />-->
+					</OverflowToolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

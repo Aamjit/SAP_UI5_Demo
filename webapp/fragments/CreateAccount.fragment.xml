@@ -1,0 +1,58 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:form="sap.ui.layout.form">
+	<Dialog id="CreateAccDialog" title="Create a new account" escapeHandler="" contentWidth="50vmax" state="Success">
+		<VBox class="sapUiSmallMargin" width="90%" alignItems="Center">
+			<form:SimpleForm id="f_createAccount_f" class="m-3" editable="true" backgroundDesign="Solid" title="Create New Account"
+				layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="12" labelSpanS="12" emptySpanXL="0" emptySpanL="0" emptySpanM="0"
+				emptySpanS="0" columnsXL="3" columnsL="3" columnsM="2" singleContainerFullSize="false" models="{createAccount}">
+				<form:content>
+					<!--<VBox>-->
+						<Label text="First Name" required="true" class="mt-1"/>
+						<Input value="{createAccount>/FirstName}" placeholder="First Name"/>
+						<!---->
+						<Label text="Middle Name" class="mt-1"/>
+						<Input value="{createAccount>/MiddleName}" placeholder="Middle Name"/>
+						<!---->
+						<Label text="Last Name" required="true" class="mt-1"/>
+						<Input value="{createAccount>/LastName}" placeholder="Last Name"/>
+						<!---->
+						<Label text="Phone Number" required="true" class="mt-1"/>
+						<Input value="{createAccount>/PhoneNo}" placeholder="Phone" type="Tel" liveChange=".handleChangePhone"/>
+						<!--</VBox>-->
+						<!--<core:Title text="" class="pm-0"/>-->
+						<!--<VBox>-->
+						<Label text="E-Mail" required="true" class="mt-1"/>
+						<Input value="{createAccount>/Email}" placeholder="example@mail.com"/>
+						<Label text="Date of Birth" required="true" class="mt-1"/>
+						<Input value="{createAccount>/DateOfBirth}" placeholder="Date Of Birth" type="Date"/>
+						<Label text="Gender" required="true" class="mt-1"/>
+						<Select id="gender_c" selectedKey="{createAccount>/Gender}" width="10rem">
+							<items>
+								<core:Item text="Male" key="M"/>
+								<core:Item text="Female" key="F"/>
+							</items>
+						</Select>
+						<Label text="Street Address" class="mt-1"/>
+						<Input value="{createAccount>/Address}" placeholder="Street"/>
+						<!--</VBox>-->
+						<!--<core:Title text="" class="pm-0"/>-->
+						<!--<VBox>-->
+						<Label text="Country" required="true" class="mt-1"/>
+						<Input value="{createAccount>/Country}" placeholder="Country"/>
+						<Label text="State" required="true" class="mt-1"/>
+						<Input value="{createAccount>/State}" placeholder="State"/>
+						<Label text="District" required="true" class="mt-1"/>
+						<Input value="{createAccount>/District}" placeholder="District"/>
+						<Label text="Password" required="true" class="mt-1"/>
+						<Input value="{createAccount>/Password}" type="Password" placeholder="*******"/>
+						<Label text="Confirm Password" required="true" class="mt-1"/>
+						<Input value="{createAccount>/ConfirmPassword}" type="Password" placeholder="********"/>
+					<!--</VBox>-->
+				</form:content>
+			</form:SimpleForm>
+			<HBox justifyContent="SpaceAround" alignItems="Center" width="100%">
+				<Button id="create_acc_btn" text="Create Account" type="Accept" press=".handleCreateBtn" icon="" width="30vmax" class="mt-1" iconFirst="true"
+					iconDensityAware="true" textDirection="Inherit"></Button>
+			</HBox>
+		</VBox>
+	</Dialog>
+</core:FragmentDefinition>

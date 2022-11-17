@@ -1,0 +1,59 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:unified="sap.ui.unified">
+	<!--<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core">-->
+	<!--class="sapMPlanCalSuppressAlternatingRowColors" -->
+	<!--viewChange=".handleViewChange"-->
+	<!--specialDates="{path: '/specialDates', templateShareable: false}">-->
+	<!--appointmentItemsHeader="{path: '/Note'}" -->
+	<!--viewKey="Day"-->
+	<!--<PlanningCalendar id="PC1" class="sapMPlanCalSuppressAlternatingRowColors" startDate="{path: '/startDate'}" rows="{path: '/people'}"-->
+	<!--	appointmentsVisualization="Filled" appointmentHeight="Large" appointmentsReducedHeight="false" showEmptyIntervalHeaders="false"-->
+	<!--	appointmentSelect=".handleAppointmentSelect" intervalSelect=".handleIntervalSelect">-->
+	<!--<toolbarContent>-->
+	<!--	<Title text="Dashboard" titleStyle="H1"/>-->
+	<!--</toolbarContent>-->
+	<!--	<rows>-->
+	<!--		<PlanningCalendarRow appointments="{path : 'appointments', templateShareable: false}"-->
+	<!--			specialDates="{path : 'specialDates', templateShareable: false}" intervalHeaders="{path: 'headers', templateShareable: false}"-->
+	<!--			title="{name}" text="{role}">-->
+	<!--noAppointmentsText="There is no current Appointments" noDataText="There is nothing here."-->
+	<!--			<specialDates>-->
+	<!--				<unified:DateTypeRange startDate="{start}" endDate="{end}" type="{type}"/>-->
+	<!--			</specialDates>-->
+	<!--			<appointments>-->
+	<!--				<unified:CalendarAppointment startDate="{start}" endDate="{end}" title="{title}" text="{info}" type="{type}" tentative="{tentative}"></unified:CalendarAppointment>-->
+	<!--			</appointments>-->
+	<!--			<intervalHeaders>-->
+	<!--				<unified:CalendarAppointment startDate="{start}" endDate="{end}" title="{title}" text="{info}" type="{type}" tentative="{tentative}"></unified:CalendarAppointment>-->
+	<!--			</intervalHeaders>-->
+	<!--		</PlanningCalendarRow>-->
+	<!--	</rows>-->
+	<!--	<specialDates>-->
+	<!--		<unified:DateTypeRange startDate="{start}" endDate="{end}" type="{type}" color="{color}"></unified:DateTypeRange>-->
+	<!--	</specialDates>-->
+	<!--</PlanningCalendar>-->
+	<!--<VBox class="sapUiSmallMargin">-->
+	<VBox class="sapUiSmallMargin">
+		<PlanningCalendar id="PCC" startDate="{path: '/startDate'}" viewKey="Day" rows="{path: '/people'}" showRowHeaders="false" models=""
+			appointmentHeight="Large" appointmentsReducedHeight="false" appointmentsVisualization="Filled" appointmentSelect=".handleAppointmentSelect"
+			showEmptyIntervalHeaders="false" showWeekNumbers="true">
+			<!--<toolbarContent>-->
+			<!--	<Title text="Title" titleStyle="H4"/>-->
+			<!--</toolbarContent>-->
+			<rows>
+				<PlanningCalendarRow title="{name}" text="{role}" appointments="{path : 'appointments', templateShareable: false}"
+					intervalHeaders="{path: 'headers', templateShareable: false}">
+					<!--<customData>-->
+					<!--	<core:CustomData key="emp-name" value="{name}" writeToDom="true"/>-->
+					<!--</customData>-->
+					<appointments>
+						<unified:CalendarAppointment startDate="{start}" selected="true" endDate="{end}" title="{title}" text="{info}" description="{description}"
+							type="{type}" tentative="{tentative}"></unified:CalendarAppointment>
+					</appointments>
+					<intervalHeaders>
+						<unified:CalendarAppointment startDate="{start}" endDate="{end}" icon="{pic}" title="{title}" type="{type}"></unified:CalendarAppointment>
+					</intervalHeaders>
+				</PlanningCalendarRow>
+			</rows>
+		</PlanningCalendar>
+	</VBox>
+</core:FragmentDefinition>

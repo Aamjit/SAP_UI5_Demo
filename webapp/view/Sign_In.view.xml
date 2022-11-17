@@ -1,0 +1,64 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:form="sap.ui.layout.form"
+	controllerName="com.mavenPatients_Appointment_Management.controller.Sign_In" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tnt="sap.tnt"
+	xmlns:l="sap.ui.layout">
+	<html:style>
+		.layout_cell_image{ background-image: url("assets/sign_in_background.jpg"); background-size: cover; padding-bottom: 30vmin} .text-white{
+		color: white; } .pm-0 #create_account_link{ display: inline; padding: 0; margin: 0; }
+	</html:style>
+	<Page backgroundDesign="Solid" showHeader="false">
+		<tnt:ToolHeader>
+			<Button type="Back" press="handleBackPress"/>
+			<Image src="Assets/logo.png" decorative="false" height="20px"/>
+			<Text text="{i18n>AppName}" wrapping="false"/>
+			<ToolbarSpacer/>
+			<Button icon="sap-icon://menu2" type="Transparent"/>
+		</tnt:ToolHeader>
+		<content>
+			<l:VerticalLayout id="sign_in_vl" width="100%">
+				<l:BlockLayout id="BlockLayout">
+					<l:BlockLayoutRow>
+						<l:BlockLayoutCell id="Accent1" width="3" title="{i18n>signInTitle}" titleAlignment="Center" titleLevel="H1" class="layout_cell_image">
+							<VBox height="40vmin">
+								<Text text="{i18n>signInDesc}" textAlign="Center" width="100%"/>
+							</VBox>
+						</l:BlockLayoutCell>
+						<l:BlockLayoutCell title="Welcome Back" width="2" titleAlignment="Center" backgroundColorSet="ColorSet10" backgroundColorShade="ShadeB">
+							<form:SimpleForm editable="true" id="f_signIn" backgroundDesign="Transparent" layout="ResponsiveGridLayout">
+								<form:content>
+									<Label text="E-Mail" required="true" class="text-white"/>
+									<Input value="{signIn>/Email}" liveChange="checkCreditCardStep" valueLiveUpdate="true" placeholder="example@mail.com"/>
+									<Label text="Password" required="true" class="text-white"/>
+									<Input value="{signIn>/Password}" type="Password" placeholder="Password"/>
+								</form:content>
+								<Button id="sign_in_btn" text="Log In" type="Accept" enabled="true" icon="" width="100%" iconFirst="true" activeIcon=""
+									iconDensityAware="true" textDirection="Inherit" press="handleLogIn">
+									<layoutData><FlexItemData growFactor="1"/></layoutData>
+									<!-- sap.ui.core.LayoutData -->
+								</Button>
+								<!--<Button id="sign_in_btn_doc" text="Doctor Log In" type="Accept" enabled="true" icon="" width="100%" iconFirst="true" activeIcon=""-->
+								<!--	iconDensityAware="true" textDirection="Inherit" press="handleLogInDoctor">-->
+								<!--	<layoutData><FlexItemData growFactor="1"/></layoutData>-->
+									<!-- sap.ui.core.LayoutData -->
+								<!--</Button>-->
+								<HBox>
+									<Text text="New here? " class="pm-0" renderWhitespace="true"/>
+									<Link id="create_account_link" visible="true" text="Create new account" enabled="true" wrapping="true" textAlign="Begin"
+										press=".handleCreateAccount"></Link>
+								</HBox>
+							</form:SimpleForm>
+						</l:BlockLayoutCell>
+					</l:BlockLayoutRow>
+				</l:BlockLayout>
+			</l:VerticalLayout>
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<!--<ToolbarSpacer/>-->
+				<!--<Button text="Accept" type="Accept" />-->
+				<!--<Button text="Reject" type="Reject" />-->
+				<!--<Button text="Edit" />-->
+				<!--<Button text="Delete" />-->
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>
