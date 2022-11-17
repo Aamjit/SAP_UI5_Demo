@@ -1,0 +1,36 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog id="viewConfirmDialog" title="Accept Appointment request?" contentWidth="50%">
+		<VBox class="sapUiSmallMargin">
+		<HBox width="100%" justifyContent="SpaceAround" alignItems="Center">
+			<Button
+				id="btn_accept_app"
+				models=""
+				bindingContexts=""
+				objectBindings=""
+				metadataContexts=""
+				text="Accept"
+				type="Accept"
+				width=""
+				enabled="true"
+				icon=""
+				iconFirst="true"
+				press=".handleBtnAcceptPress">
+			</Button>
+			<Button
+				id="btn_reject_app"
+				models=""
+				bindingContexts=""
+				objectBindings=""
+				metadataContexts=""
+				text="Reject"
+				type="Reject"
+				width=""
+				enabled="true"
+				icon=""
+				iconFirst="true"
+				press=".handleBtnRejectPress">
+			</Button>
+		</HBox>
+		</VBox>
+	</Dialog>
+</core:FragmentDefinition>

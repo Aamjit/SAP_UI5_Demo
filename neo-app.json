@@ -1,0 +1,30 @@
+{
+	"welcomeFile": "/webapp/index.html",
+	"routes": [{
+		"path": "/resources",
+		"target": {
+			"type": "service",
+			"name": "sapui5",
+			"entryPath": "/resources",
+			"version": "1.52.13"
+		},
+		"description": "SAPUI5 Resources"
+	}, {
+		"path": "/test-resources",
+		"target": {
+			"type": "service",
+			"name": "sapui5",
+			"entryPath": "/test-resources",
+			"version": "1.52.13"
+		},
+		"description": "SAPUI5 Test Resources"
+	}, {
+		"path": "/cr7",
+		"target": {
+			"type": "destination",
+			"name": "CR7"
+		},
+		"description": "CR7"
+	}],
+	"sendWelcomeFileRedirect": true
+}

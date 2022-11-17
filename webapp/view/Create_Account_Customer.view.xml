@@ -1,0 +1,81 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:tnt="sap.tnt" xmlns:form="sap.ui.layout.form"
+	xmlns:l="sap.ui.layout" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="com.mavenPatients_Appointment_Management.controller.Create_Account_Customer">
+	<html:style>
+		.background-image{ background-image: url('assets/registration_background.jpg'); background-size: cover;} .form-custom{ opacity: 0.8; }
+		.text-white{ color: white; } .pm-0 #create_account_link{ display: inline; padding: 0; margin: 0; } .mt-1{ margin-top : 1rem;} .m-3{ margin:
+		4vmin; }
+	</html:style>
+	<Page showHeader="false" class="background-image">
+		<tnt:ToolHeader>
+			<Button type="Back" press="handleBackPress"/>
+			<Image src="Assets/logo.png" decorative="false" height="20px"/>
+			<Text text="{i18n>AppName}" wrapping="false"/>
+			<ToolbarSpacer/>
+			<Button icon="sap-icon://menu2" type="Transparent"/>
+		</tnt:ToolHeader>
+		<content>
+			<!--<form:SimpleForm id="f_createAccount" class="m-3" width="96%" editable="true" backgroundDesign="Solid" title="Create New Account"-->
+			<!--	layout="ResponsiveGridLayout" labelSpanXL="2" labelSpanL="2" labelSpanM="12" labelSpanS="12" emptySpanXL="0" emptySpanL="0" emptySpanM="0"-->
+			<!--	emptySpanS="0" columnsXL="3" columnsL="3" columnsM="2" singleContainerFullSize="false" models="{createAccount}">-->
+			<!--	<form:content>-->
+			<!--		<core:Title text="" class="pm-0"/>-->
+			<!--		<VBox>-->
+			<!--			<Label text="First Name" required="true" class="mt-1"/>-->
+			<!--			<Input value="{createAccount>/FirstName}" valueLiveUpdate="true" placeholder="First Name"/>-->
+			<!--			<Label text="Middle Name" class="mt-1"/>-->
+			<!--			<Input value="{createAccount>/MiddleName}" placeholder="Middle Name"/>-->
+			<!--			<Label text="Last Name" required="true" class="mt-1"/>-->
+			<!--			<Input value="{createAccount>/LastName}" placeholder="Last Name"/>-->
+						<!--</form:content>-->
+						<!--<form:content>-->
+			<!--			<Label text="Phone Number" required="true" class="mt-1"/>-->
+			<!--			<Input value="{createAccount>/PhoneNo}" placeholder="Phone" type="Tel" liveChange=".handleChangePhone"/>-->
+			<!--		</VBox>-->
+			<!--		<core:Title text="" class="pm-0"/>-->
+			<!--		<VBox>-->
+			<!--			<Label text="E-Mail" required="true" class="mt-1"/>-->
+			<!--			<Input value="{createAccount>/Email}" placeholder="example@mail.com"/>-->
+			<!--			<Label text="Date of Birth" required="true" class="mt-1"/>-->
+			<!--			<Input value="{createAccount>/DateOfBirth}" placeholder="Date Of Birth" type="Date"/>-->
+			<!--			<Label text="Gender" required="true" class="mt-1"/>-->
+			<!--			<Select id="gender" selectedKey="{createAccount>/Gender}" width="10rem">-->
+			<!--				<items>-->
+			<!--					<core:Item text="Male" key="M"/>-->
+			<!--					<core:Item text="Female" key="F"/>-->
+			<!--				</items>-->
+			<!--			</Select>-->
+			<!--			<Label text="Street Address" class="mt-1"/>-->
+			<!--			<Input value="{createAccount>/Address}" placeholder="Street"/>-->
+			<!--		</VBox>-->
+			<!--		<core:Title text="" class="pm-0"/>-->
+			<!--		<VBox>-->
+			<!--			<Label text="Country" required="true" class="mt-1"/>-->
+			<!--			<Input value="{createAccount>/Country}" placeholder="Country"/>-->
+			<!--			<Label text="State" required="true" class="mt-1"/>-->
+			<!--			<Input value="{createAccount>/State}" placeholder="State"/>-->
+			<!--			<Label text="District" required="true" class="mt-1"/>-->
+			<!--			<Input value="{createAccount>/District}" placeholder="District"/>-->
+			<!--			<Label text="Password" required="true" class="mt-1"/>-->
+			<!--			<Input value="{createAccount>/Password}" type="Password" placeholder="*******"/>-->
+			<!--			<Label text="Confirm Password" required="true" class="mt-1"/>-->
+			<!--			<Input value="{createAccount>/ConfirmPassword}" type="Password" placeholder="********"/>-->
+			<!--		</VBox>-->
+			<!--	</form:content>-->
+			<!--</form:SimpleForm>-->
+			<!--<HBox justifyContent="SpaceAround" alignItems="Center" width="100%">-->
+			<!--	<Button id="sign_in_btn" text="Create Account" type="Accept" press=".handleCreateBtn" icon="" width="20rem" class="mt-1" iconFirst="true"-->
+			<!--		iconDensityAware="true" textDirection="Inherit"></Button>-->
+			<!--</HBox>-->
+		</content>
+		<footer>
+			<OverflowToolbar>
+				<!--<ToolbarSpacer/>-->
+				<!--<Button text="Accept" type="Accept" />-->
+				<!--<Button text="Reject" type="Reject" />-->
+				<!--<Button text="Edit" />-->
+				<!--<Button text="Delete" />-->
+			</OverflowToolbar>
+		</footer>
+	</Page>
+</mvc:View>

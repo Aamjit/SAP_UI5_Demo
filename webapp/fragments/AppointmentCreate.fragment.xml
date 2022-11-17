@@ -1,0 +1,107 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog id="createAppDialogBox" title="Create an appointment" escapeHandler=".handleEscape">
+		<VBox class="sapUiSmallMargin" width="98%" alignItems="Center">
+			<f:SimpleForm id="f_createAppoint_f" class="m-3" editable="true" backgroundDesign="Solid" layout="ResponsiveGridLayout" labelSpanXL="6"
+				labelSpanL="6" labelSpanM="12" labelSpanS="12" emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0" columnsXL="1" columnsL="1"
+				columnsM="1" singleContainerFullSize="false" models="{Appointment}" width="100%">
+				<f:content>
+					<VBox width="100%">
+						<Label text="Appoinment Title" required="true"/>
+						<Input value="{Appointment>/AppTitle}"/>
+						<!---->
+						<Label text="Country" required="true"/>
+						<!--<Input value="{Appointment>/Country}"/>-->
+						<Select id="select_country" forceSelection="false" required="true" selectedKey="{Appointment>/Country}" change=".handleCountryChange"
+							items="{ path: 'selectCountryList>/' }" autoAdjustWidth="true" width="100%">
+							<!--, sorter: { path: 'CountryName' } -->
+							<!--<items>-->
+							<core:Item key="{selectCountryList>CountryCode}" text="{selectCountryList>CountryName}"/>
+							<!--</items>-->
+						</Select>
+						<!---->
+						<Label text="State" required="true"/>
+						<!--<Input value="{Appointment>/State}"></Input>-->
+						<Select id="select_state" forceSelection="false" required="true" selectedKey="{Appointment>/State}" change=".handleStateChange"
+							items="{ path: 'selectStateList>/' }" autoAdjustWidth="true">
+							<!--, sorter: { path: 'CountryName' } -->
+							<!--<items>-->
+							<core:Item key="{selectStateList>StateCode}" text="{selectStateList>StateName}"/>
+							<!--</items>-->
+						</Select>
+						<!---->
+						<Label text="District" required="true"/>
+						<!--<Input value="{Appointment>/District}"></Input>-->
+						<Select id="select_district" forceSelection="false" required="true" selectedKey="{Appointment>/District}" change=".handleDistrictChange"
+							items="{ path: 'selectDistrictList>/' }" autoAdjustWidth="true">
+							<!--, sorter: { path: 'CountryName' } -->
+							<!--<items>-->
+							<core:Item key="{selectDistrictList>DistrictCode}" text="{selectDistrictList>DistrictName}"/>
+							<!--</items>-->
+						</Select>
+						<!---->
+						<Label text="Hospital" required="true"/>
+						<!--<Input value="{Appointment>/Hospital}"></Input>-->
+						<Select id="select_hospital" forceSelection="false" required="true" selectedKey="{Appointment>/HospitalId}" change=".handleHospitalChange"
+							items="{ path: 'selectHospitalList>/' }" autoAdjustWidth="true">
+							<!--, sorter: { path: 'CountryName' } -->
+							<!--<items>-->
+							<core:Item key="{selectHospitalList>HospitalId}" text="{selectHospitalList>HospitalName}"/>
+							<!--</items>-->
+						</Select>
+						<!---->
+						<Label text="Department" required="true"/>
+						<!--<Input value="{Appointment>/Department}"></Input>-->
+						<Select id="select_department" forceSelection="false" required="true" selectedKey="{Appointment>/Department}" change=".handleDepartmentChange"
+							items="{ path: 'selectDepartmentList>/' }" autoAdjustWidth="true">
+							<!--, sorter: { path: 'CountryName' } -->
+							<!--<items>-->
+							<core:Item key="{selectDepartmentList>DeptCode}" text="{selectDepartmentList>DeptName}"/>
+							<!--</items>-->
+						</Select>
+						<!---->
+						<Label text="Doctor Name" required="true"/>
+						<!--<Input value="{Appointment>/Doctor}"></Input>-->
+						<Select id="select_doctor" forceSelection="false" required="true" selectedKey="{Appointment>/DoctorId}" change=".handleDoctorChange"
+							items="{ path: 'selectDoctorList>/' }" autoAdjustWidth="true">
+							<!--, sorter: { path: 'CountryName' } -->
+							<!--<items>-->
+							<core:Item key="{selectDoctorList>DoctorID}" text="{selectDoctorList>DoctorName}"/>
+							<!--</items>-->
+						</Select>
+						<!---->
+						<Label text="Add a short note" required="true"/>
+						<TextArea value="{Appointment>/Note}" editable="true" width="100%"></TextArea>
+						<!--<Input value="{Appointment>/Note}" type="Text"></Input>-->
+						<!--<HBox justifyContent="SpaceAround" alignItems="Center" width="100%" class="m-2">-->
+						<VBox justifyContent="Center" alignItems="Center">
+							<Label text="Pick a date" required="true"/>
+							<Button tooltip="Schedule a date" icon="sap-icon://appointment-2" press=".openDatePicker"/>
+							<DatePicker id="HiddenDP" hideInput="true" change=".changeDateHandler"/>
+						</VBox>
+						<!--</HBox>-->
+						<HBox justifyContent="SpaceAround" alignItems="Center" width="100%" class="m-2">
+							<VBox justifyContent="Center" alignItems="Center">
+								<Label text="From time" required="true"/>
+								<Button tooltip="Pick start time" icon="sap-icon://time-entry-request" press=".openFTimePicker"/>
+								<TimePicker id="HiddenTPFrom" hideInput="true" change=".changeFTimeHandler"/>
+							</VBox>
+							<VBox justifyContent="Center" alignItems="Center">
+								<Label text="To time" required="true"/>
+								<Button tooltip="Pick end time" icon="sap-icon://time-entry-request" press=".openTTimePicker"/>
+								<TimePicker id="HiddenTPTo" hideInput="true" change=".changeTTimeHandler"/>
+							</VBox>
+						</HBox>
+					</VBox>
+					<HBox alignItems="Center">
+						<Label text="Availability: "/>
+						<Label text="{Appointment>/availability}" design="Bold" displayOnly="true"/>
+					</HBox>
+				</f:content>
+			</f:SimpleForm>
+			<HBox width="100%" justifyContent="SpaceAround" alignItems="Center">
+				<Button text="Schedule Appoinment" type="Accept" press=".handleCreateAppointment" width="100%"/>
+				<Button text="Close" type="Reject" press=".onCloseDialog" width="100%"/>
+			</HBox>
+		</VBox>
+	</Dialog>
+</core:FragmentDefinition>
